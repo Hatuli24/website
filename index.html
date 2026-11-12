@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- טייטל לחלוקה ושיתוף בוואצאפ -->
+    <title>⭐ העמוד של חתולי ⭐</title>
+
+    <!-- פביאיקון מהתמונה 7777 בגודל 64x64 -->
+    <link rel="icon" type="image/png" href="7777.png" sizes="64x64">
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* מצב בהיר */
+            --bg-color: #F9D39F;
+            --text-color: #333333;
+            --heading-color: #000000;
+            --accent-color: #FFD700;
+            --toggle-btn-color: #333;
+            --card-bg: rgba(255, 255, 255, 0.35);
+            --card-shadow: 0 10px 25px rgba(0,0,0,0.18);
+        }
+
+        /* מצב כהה מחמיא */
+        body.dark-mode {
+            --bg-color: #1f1412;
+            --text-color: #f4e5d6;
+            --heading-color: #ffe3a5;
+            --accent-color: #ffc857;
+            --toggle-btn-color: #ffc857;
+            --card-bg: rgba(40, 23, 20, 0.9);
+            --card-shadow: 0 10px 28px rgba(0,0,0,0.7);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.4s ease, color 0.4s ease;
+            line-height: 1.6;
+            padding-bottom: 50px;
+            text-align: center;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: flex-start;
+            padding: 15px 25px;
+        }
+
+        #theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--toggle-btn-color);
+            font-size: 1.5rem;
+            padding: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        #theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 20px 40px;
+            border-radius: 18px;
+            background: var(--card-bg);
+            backdrop-filter: blur(6px);
+            box-shadow: var(--card-shadow);
+        }
+
+        /* תמונת הבובה בראש האתר */
+        .puppet-image {
+            max-width: 320px;
+            width: 100%;
+            height: auto;
+            margin: 0 auto 20px;
+            display: block;
+            border-radius: 18px;
+            object-fit: cover;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.25));
+            transition: transform 0.2s ease, filter 0.35s ease;
+        }
+
+        body.dark-mode .puppet-image {
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.7));
+        }
+
+        .puppet-image.puppet-zoom {
+            transform: scale(1.2);
+        }
+
+        .titles {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--heading-color);
+            font-size: 2.3rem;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        .titles span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .star-icon {
+            color: var(--accent-color);
+        }
+
+        .content-text {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: justify;
+            text-align-last: right;
+        }
+
+        .content-text p {
+            margin-bottom: 1.5em;
+        }
+
+        /* בועה נוספת לקישורים */
+        .bubble {
+            max-width: 800px;
+            margin: 18px auto 0;
+            padding: 18px 20px;
+            border-radius: 18px;
+            background: var(--card-bg);
+            backdrop-filter: blur(6px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .bubble h3 {
+            color: var(--heading-color);
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .bubble .bubble-text {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            text-align-last: center;
+        }
+
+        .link-list {
+            list-style: none;
+            padding: 0;
+            margin: 14px auto 0;
+            max-width: 700px;
+        }
+
+        .link-list li {
+            margin: 14px 0;
+        }
+
+        .link-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.18);
+            transition: transform 0.2s ease, background 0.25s ease;
+        }
+
+        body.dark-mode .link-list a {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .link-list a:hover {
+            transform: scale(1.03);
+            background: rgba(255, 255, 255, 0.28);
+        }
+
+        body.dark-mode .link-list a:hover {
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .link-caption {
+            display: block;
+            font-weight: 400;
+            margin-top: 6px;
+            opacity: 0.95;
+        }
+
+        .call-to-action {
+            font-weight: 700;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <button id="theme-toggle" aria-label="החלף מצב תצוגה">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </div>
+
+    <div class="container">
+        <img id="puppet-image" src="7777.png" alt="הבובה האדומה של חתולי" class="puppet-image">
+
+        <div class="titles">
+            <h1>
+                <span class="star-icon">⭐</span>
+                <span>ברוכים הבאים</span>
+                <span class="star-icon">⭐</span>
+            </h1>
+            <h2>
+                <span class="star-icon">🎓</span>
+                <span>לעמוד של חתולי</span>
+                <span class="star-icon">🎓</span>
+            </h2>
+        </div>
+
+        <div class="content-text">
+            <p>
+                כאן תמצאו את ההתפתחויות והחידושים בעולם הטכנולוגיה וה-AI. כל כמה ימים אני מעלה לסטורי פסקה קצרה שמסכמת התרחשות כלשהי, ויחד איתה גם קישור לפרסום המקורי לקריאה נוספת. למי שפספס אני שומר את כל הידיעות גם בהיילייטס, כך שגם אחרי שהן נמחקות מהסטורי אפשר לחזור לקרוא (מחולק לשנים 2024, 2025, 2026).
+            </p>
+            <p>
+                בעמוד תוכלו למצוא גם אתרים חינמיים נוחים ומומלצים לשימוש שניסיתי ואהבתי. כדי להיכנס אליהם מה שנדרש הוא לכתוב בגוגל את שם האתר שמופיע בתחילת הפוסט שקראתם, להירשם בכניסה לאתר עם חשבון גוגל (עדיף חשבון לספאם, לא חשבון לכולם), ואחר כך ישר אפשר להשתמש.
+            </p>
+        </div>
+
+        <p class="call-to-action">
+            שימו עוקב עכשיו ותשמרו לאחר כך, וכמובן גם תשלחו לחברים. 📦
+        </p>
+    </div>
+
+    <!-- בועה נוספת (מתוך ה-DOCX) -->
+    <div class="bubble" aria-label="קישורים חשובים">
+        <h3>קישורים חשובים</h3>
+        <div class="bubble-text">
+            <ul class="link-list">
+                <li>
+                    <a href="https://www.youtube.com/@GaonAI" target="_blank" rel="noopener noreferrer">
+                        ערוץ היוטיוב
+                        <span class="link-caption">(סרטוני הסבר, וייבקודינג)</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://chat.whatsapp.com/KI8Z2zOy6c2AZ5ZIHyYeQQ?mode=hqrt2" target="_blank" rel="noopener noreferrer">
+                        קבוצת הווצאפ
+                        <span class="link-caption">(ספר ההומנואידים 2025, רשימת כלים מומלצים מעודכנת)</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        const moonIcon =
+            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" ' +
+            'viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+            'stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+            '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+
+        const sunIcon =
+            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" ' +
+            'viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+            'stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+            '<circle cx="12" cy="12" r="5"></circle>' +
+            '<line x1="12" y1="1" x2="12" y2="3"></line>' +
+            '<line x1="12" y1="21" x2="12" y2="23"></line>' +
+            '<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>' +
+            '<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>' +
+            '<line x1="1" y1="12" x2="3" y2="12"></line>' +
+            '<line x1="21" y1="12" x2="23" y2="12"></line>' +
+            '<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>' +
+            '<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+
+        function setDarkMode() {
+            body.classList.add('dark-mode');
+            themeToggleBtn.innerHTML = sunIcon;
+            localStorage.setItem('theme', 'dark');
+        }
+
+        function setLightMode() {
+            body.classList.remove('dark-mode');
+            themeToggleBtn.innerHTML = moonIcon;
+            localStorage.setItem('theme', 'light');
+        }
+
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            setDarkMode();
+        } else {
+            setLightMode();
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (body.classList.contains('dark-mode')) {
+                setLightMode();
+            } else {
+                setDarkMode();
+            }
+        });
+
+        const puppetImage = document.getElementById('puppet-image');
+        const initialImage = '7777.png';
+        const flickerImage = '7777 - Copy.png';
+
+        function randomDelay(minMs, maxMs) {
+            return Math.floor(Math.random() * (maxMs - minMs + 1)) + minMs;
+        }
+
+        function scheduleZoom() {
+            const delay = randomDelay(20000, 30000);
+            setTimeout(() => {
+                puppetImage.classList.add('puppet-zoom');
+                setTimeout(() => {
+                    puppetImage.classList.remove('puppet-zoom');
+                    scheduleZoom();
+                }, 200);
+            }, delay);
+        }
+
+        let isClickAnimating = false;
+
+        puppetImage.addEventListener('click', () => {
+            if (isClickAnimating) return;
+            isClickAnimating = true;
+
+            puppetImage.src = flickerImage;
+            setTimeout(() => {
+                puppetImage.src = initialImage;
+                isClickAnimating = false;
+            }, 100);
+        });
+
+        puppetImage.src = initialImage;
+        scheduleZoom();
+    </script>
+</body>
+</html>
